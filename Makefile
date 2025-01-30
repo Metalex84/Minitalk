@@ -6,13 +6,13 @@
 #    By: alejango <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/28 18:13:44 by alejango          #+#    #+#              #
-#    Updated: 2025/01/28 18:13:47 by alejango         ###   ########.fr        #
+#    Updated: 2025/01/30 21:23:48 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler & flags
 CC	= 	cc
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS	=	-Wall -Wextra -Werror -g3
 RM	=	rm -rf
 
 # Server info
