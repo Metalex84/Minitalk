@@ -25,14 +25,14 @@ static void	signal_handler(int signal, siginfo_t *sinfo, void *content)
 	if (bit_count == 8)
 	{
 		if (character == '\0')
-			ft_printf("\n[INFO] Full message received. Waiting for more...\n");
+			ft_printf("\nGot tha message. Tell me more!\n");
 		else
 			ft_printf("%c", character);
 		character = 0;
 		bit_count = 0;
 	}
 	else
-		character <<= 1;
+		character = character << 1;
 	kill(sinfo->si_pid, SIGUSR1);
 }
 
@@ -42,7 +42,7 @@ int	main(void)
 	struct sigaction	sa;
 
 	pid = getpid();
-	ft_printf("Server Started, PID: %d\n", pid);
+	ft_printf("Server running on PID: %d and listening!\n", pid);
 	ft_printf("Waiting for messages...\n");
 	sa.sa_flags = SA_SIGINFO;
 	sa.sa_sigaction = signal_handler;

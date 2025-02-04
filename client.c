@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 3 || !ft_strlen(argv[2]) || !validate_pid(argv[1]))
 	{
-		ft_printf("ERROR\nUsage: ./client <server_pid> <message>\n");
+		ft_printf("Usage: %s <server_pid> <message>\n", argv[0]);
 		return (1);
 	}
 	server_pid = ft_atoi(argv[1]);
@@ -82,10 +82,10 @@ int	main(int argc, char **argv)
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);
 	sigaction(SIGUSR1, &sa, NULL);
-	ft_printf("Sending message to PID server: %d\n", server_pid);
+	ft_printf("Sending message to server on PID %d\n", server_pid);
 	if (!send_message(server_pid, argv[2]))
-		ft_printf("ERROR: no processes running with PID %d\n", server_pid);
+		ft_printf("No jobs matching PID %d...\n", server_pid);
 	else
-		ft_printf("WELL DONE: message sent to process %d\n", server_pid);
+		ft_printf("Message sent to server on PID %d\n", server_pid);
 	return (0);
 }
